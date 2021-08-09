@@ -8,7 +8,5 @@ while cnt <= case:
         for compare_idx in range(0, idx):
             if data[compare_idx] > data[compare_idx+1]:
                 data[compare_idx], data[compare_idx+1] = data[compare_idx+1], data[compare_idx]
-    for num in range(0, N):
-        print(data[num], end = ' ')
-    print()
+    print(' '.join(map(str, data)))
     cnt += 1
