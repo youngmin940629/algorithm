@@ -18,3 +18,5 @@ for tc in range(int(input())):
     if visited[G] == 1:
         result = 1
     print('#{} {}'.format(tc+1, result))
+
+

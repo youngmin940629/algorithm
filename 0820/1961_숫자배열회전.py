@@ -1,7 +1,9 @@
 for tc in range(int(input())):
     N = int(input())
     data = [list(map(int, input().split())) for _ in range(N)]
-    result = [[0] * 3 for _ in range(N)]
+    result1 = [[0] * N for _ in range(3)]
+    result2 = [[0] * N for _ in range(3)]
+    result3 = [[0] * N for _ in range(3)]
     for case in range(3):
         if case == 0:
             tmp_result = 0

@@ -3,7 +3,7 @@ for tc in range(int(input())):
     stack = []
     result = 1
     for word in data:
-        if word == '(' or word == '{':
+        if word == '(' or word == '{' or word == '[':
             stack.append(word)
         elif word == ')':
             if stack == [] or stack.pop() != '(':
@@ -11,6 +11,10 @@ for tc in range(int(input())):
                 break
         elif word == '}':
             if stack == [] or stack.pop() != '{':
+                result = 0
+                break
+        elif word == ']':
+            if stack == [] or stack.pop() != '[':
                 result = 0
                 break
     if stack != []:
