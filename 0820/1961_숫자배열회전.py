@@ -1,31 +1,25 @@
 for tc in range(int(input())):
     N = int(input())
-    data = [list(map(int, input().split())) for _ in range(N)]
-    result1 = [[0] * N for _ in range(3)]
-    result2 = [[0] * N for _ in range(3)]
-    result3 = [[0] * N for _ in range(3)]
+    data = [list(input().split()) for _ in range(N)]
+    result1 = [[] for _ in range(N)]
+    result2 = [[] for _ in range(N)]
+    result3 = [[] for _ in range(N)]
     for case in range(3):
         if case == 0:
             tmp_result = 0
             for i in range(N): #90
                 for j in range(N):
-                    tmp_result += data[j][i] * (10**j)
-                result[i][0] = tmp_result
-                tmp_result = 0
+                    result1[i].append(data[N-1-j][i])
         elif case == 1:
             tmp_result = 0
-            for i in range(N-1, -1, -1): #180
+            for i in range(N): #180
                 for j in range(N):
-                    tmp_result += data[i][j] * (10 ** j)
-                result[N-1-i][1] = tmp_result
-                tmp_result = 0
+                    result2[i].append(data[N-1-i][N-1-j])
         elif case == 2:
             tmp_result = 0
-            for i in range(N - 1, -1, -1):  # 270
+            for i in range(N):  # 270
                 for j in range(N):
-                    tmp_result += data[j][i] * (10 ** (N-1-j))
-                result[N - 1 - i][2] = tmp_result
-                tmp_result = 0
+                    result3[i].append(data[j][N-1-i])
     print('#{}'.format(tc+1))
-    for i in range(N):
-        print(' '.join(map(str, result[i])))
+    for idx in range(N):
+        print('{} {} {}'.format(''.join(map(str, result1[idx])), ''.join(map(str, result2[idx])), ''.join(map(str, result3[idx]))))
