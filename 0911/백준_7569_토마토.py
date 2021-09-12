@@ -10,16 +10,23 @@ dy = [0, 0, 1, -1, 0, 0]
 dz = [0, 0, 0, 0, 1, -1]
 result = 0
 que = deque()
+
+
 def bfs():
     while que:
         x, y, z = que.popleft()
         for dir in range(6):
             next_x, next_y, next_z = x+dx[dir], y+dy[dir], z+dz[dir]
-            if 0 <= next_x < M and 0 <= next_y < N and 0 <= next_z < H:
+            if is_safe(next_x, next_y, next_z):
                 if box[next_z][next_y][next_x] == 0 and visited[next_z][next_y][next_x] == 0:
                     visited[next_z][next_y][next_x] = visited[z][y][x] + 1
                     box[next_z][next_y][next_x] = 1
                     que.append([next_x, next_y, next_z])
+
+
+def is_safe(x,y,z):
+    return 0 <= x < M and 0 <= y < N and 0 <= z < H
+
 
 for z in range(H):
     for y in range(N):
