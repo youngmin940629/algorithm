@@ -1,4 +1,4 @@
-def partsum(a,b,check):
+def partsum(st,a,b,check):
     global cnt
     if a == b:
         if check == K:
@@ -9,10 +9,10 @@ def partsum(a,b,check):
     if check >= K:
         return
     else:
-        for i in range(len(data)):
+        for i in range(st, len(data)):
             if not visited[i]:
                 visited[i] = 1
-                partsum(a+1,b,check+data[i])
+                partsum(i, a+1,b,check+data[i])
                 visited[i] = 0
 
 
@@ -22,5 +22,5 @@ for tc in range(int(input())):
     cnt = 0
     for count in range(1, len(data)-1):
         visited = [0] * len(data)
-        partsum(0,count,0)
-    print('#{} {}'.format(tc+1, int(cnt//2)))
+        partsum(0, 0,count,0)
+    print('#{} {}'.format(tc+1, cnt))
