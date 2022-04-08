@@ -12,21 +12,18 @@ for _ in range(M):
 q = deque()
 visited = [0] * (N+1)
 
-def bfs():
+def bfs(n):
+    q.append(n)
+    visited[n] = 1
     while q:
         node = q.popleft()
-        visited[node] = 1
         for next in arr[node]:
             if not visited[next]:
+                visited[next] = 1
                 q.append(next)
 result = 0
 for i in range(1, N+1):
     if not visited[i]:
-        if not arr[i]:
-            result += 1
-            visited[i] = 1
-        else:
-            result += 1
-            q.append(i)
-            bfs()
+        bfs(i)
+        result += 1
 print(result)
