@@ -21,7 +21,6 @@ def union(parent, a, b, know_truth):
         else:
             parent[a] = b
 
-
 n, m = map(int, input().split())
 know_truth = list(map(int, input().split()))[1:]
 
