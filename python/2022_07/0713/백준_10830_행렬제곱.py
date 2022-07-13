@@ -26,4 +26,7 @@ def matrix_pow(original, n):
 
 result = matrix_pow(A, B)
 for i in range(N):
+    for j in range(N):
+        result[i][j] = result[i][j] % 1000
+for i in range(N):
     print(' '.join(map(str, result[i])))
